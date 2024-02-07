@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taschenrechner</title>
+    <link rel="stylesheet" href="Design.css"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0">
+    <script>
+
+    function appendOperation(operation) {
+        document.getElementById('Ergebnis').innerHTML += operation;
+    }
+
+    function calculateResult() {
+        let container = document.getElementById('Ergebnis');
+        let result = eval(container.innerHTML);
+        container.innerHTML = result;
+    }
+
+    function reset() {
+        let container = document.getElementById('Ergebnis');
+        if (container.innerHTML.endsWith(' ')) {
+            container.innerHTML = container.innerHTML.slice(0, -25000);
+        } else {
+            container.innerHTML = container.innerHTML.slice(0, -25000);
+        }
+    }
+    function sinus()
+    {
+        let container = document.getElementById('Ergebnis'); 
+        container.innerHTML =Math.sin(eval(container.innerHTML));
+        ende=true;
+    }
+    function log()
+    {
+        let container = document.getElementById('Ergebnis');
+        container.innerHTML = Math.LN2
+        ende=true;
+    }
+    function wurzel()
+    {
+        let container = document.getElementById('Ergebnis');
+        container.innerHTML = Math.sqrt(eval(container.innerHTML));
+        ende=true;
+    }
+    function quadrat()
+    {
+        let container = document.getElementById('Ergebnis');
+        container.innerHTML = eval(container.innerHTML * container.innerHTML)
+        ende=true;
+    }
+    function runden()
+    {
+        let container = document.getElementById('Ergebnis');
+        container.innerHTML = Math.round(eval(container.innerHTML))
+        ende=true;
+    }
+    </script>
+</head>
+<body>
+    <div id="Ergebnis">
+    </div>
+<table>
+    <tr>
+        <td id="sinus" onclick="sinus()">sin</td>
+        <td id="kAuf" onclick="appendOperation('(')">(</td>
+        <td id="kZu" onclick="appendOperation(')')">)</td>
+        <td id="prozent" onclick="runden()">≈</td>
+        <td id="Lösch" class="prisma" onclick="reset()">AC</td>
+    </tr>
+    <tr>
+        <td id="log" onclick="log()">log</td>  
+        <td id="7" onclick="appendOperation(7)">7</td>
+        <td id="8" onclick="appendOperation(8)">8</td>
+        <td id="9" onclick="appendOperation(9)">9</td>
+        <td id="Durch" class="prisma" onclick="appendOperation(' / ')">÷</td>
+    </tr>    
+    <tr>
+        <td id="wurzel" onclick="wurzel()">√</td> 
+        <td id="4" onclick="appendOperation(4)">4</td>
+        <td id="5" onclick="appendOperation(5)">5</td>
+        <td id="6" onclick="appendOperation(6)">6</td>
+        <td id="Mal" class="prisma" onclick="appendOperation(' * ')">×</td>
+    </tr>    
+    <tr>
+        <td id="hoch" onclick="quadrat()">x²</td> 
+        <td id="1" onclick="appendOperation(1)">1</td>
+        <td id="2" onclick="appendOperation(2)">2</td>
+        <td id="3" onclick="appendOperation(3)">3</td>
+        <td id="Minus" class="prisma" onclick="appendOperation(' - ')">-</td>
+    </tr>    
+    <tr>
+        <td id="pi" onclick="appendOperation(3.14159265358979323)">π</td> 
+        <td id="0" onclick="appendOperation(0)">0</td>
+        <td id="7" onclick="appendOperation('.')">,</td>
+        <td id="IstGleich" class="prisma" onclick="calculateResult()">=</td>
+        <td id="Plus" class="prisma" onclick="appendOperation(' + ')">+</td>
+    </tr>
+</table>
+
+
+</body>
+</html>
